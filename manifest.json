@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "跨境兔图片采集插件",
+  "version": "1.0",
+  "description": "在购物上采集图片并上传的插件",
+  "key":"MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC24owy8/g1rt7Sm5eBSh7/CN+18QrHTKhT7arxsDTwENYcsWWakojosDmo6mRxLdRdkfT17EjJwj2Z/W9bEKh9wJGftkSFwpy+5YlGsMbYBdF3OOCff7M6Vp12O+hYsgSod74yaAkruBU53LcYWoZp/RxQxwpCXQ3Z0L/5n9MPMukfollIraR37yqcGTa3+MHstz3BOuWf4echAMWRB+c5eYUIZ7eM+MRPeYL6BAFqXiLBKAfQOISjLeNoyVWSG+sJWltgTc1xV/3S7ptYc2mGeQ8nJXSeAod1bX/tA+G6I8omJx6ntDD/QONT0qLQn0vgLUe1GV4lt2mNFgzDVbOvAgMBAAECggEAHNACUIC5SRPczQdwThE0Yu+t9wcbsJx2JIrcFKmzHWM5qFmWbUzKvwYMf302B9K1k2xMUHZCXW75r4oLAijUssMk7imUEBLCCR02jGmLWjtIbeULFnXS8cz1j8wOZfLd4wDCeUSEtVuSFISeX/rbFFWpIVzKU/w/E2Lc6+HvKYSSnm1oLlQZrJwnfbzGsFMhgEANcODBCarMgOCGGRglJvAidEZmrd380TIpANvKX4mniABd2PeihhQ3pUOjgBwDoLpWTTmdOi5x/+qs9ymkd25bWw3KTdMtrxMe5pCtL7MhIYEhLKqtp0q3bVl96tPJE2DpsvmWg1pa+BRUbmctoQKBgQDczlJk05hrzkxIWc/e9f/Jl8Y5gb+9kdW3YXgW35dGIzu2tZCKw6qU3zvWQ8ZLv59IfdpYN1K2xAOzRcGbepcnTCCPfbFOI/H0j3coUx4JbbGubrZVXF/uX1aa/uf8a+zaBdJUkgwbcLKmh5ZYjsYcxLl7RW35yoy+HrsC4Fa5HwKBgQDUCOmjldQ8VuCkxaO1AZL4mFfYg0N4hr/wrgdOk1Vy3lLMAfDQMr0Sn3/LupwlG9TE2Wj2mXsT7CN5w326cfrXTuR6mI2cCzsjQ3/bge8byXdyVsQh6z1/3UQYPLE2ZeKd/gJ0ss5Iu5j0nsouO1wTL1ZqYMLV0NfZXSp0QqljcQKBgQDJapOSUcoqHQdMwFB0bCYmOIKjlo3XWR6ApzKqes89NYqVAk6VpiMGphOpQi2yj1u2/sabzetvuKI/eBRBxbP4LuNMwTVpuDRQCEaDzD4MD7oTCf7dIuSHRwRzYq8vfSuTPdg9OPQ+W7E7Y1dr9OEXAQTJQ+4r++4ix1mEKCwztQKBgG91J+u3zNLTEE9NHRr+8tT+r96+UW8/1hGcSXcCd75kI73dn0qyATWS5kiflYjkMlovtr86OrpkPNm665Jga+1WKUBQhM/sD3AgAUvP53MB2moeNgdmcvONyke7T6Q6tn86kOvrOgh9pI+iEMFwrpvfHFva9VAT8gLuuGxYxlXhAoGAWT9425Dzb3HgP1JTWaGlxDym+u12U0+bI3LWYHPHnW058rVUEhjqa9z4sNF37upaTkE6pAyOEXagy5v+NZvNQCkpZkbEpopFA6M2b9p4XLJeUA46r4TyiQ/ny8rRMLZXV+eWjaI8mnBMFCHQcKAPb6A3Vgpu2TeswYRGNBMG6vU=",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "cookies",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://detail.1688.com/offer/*",
+    "https://detail.tmall.com/*",
+    "https://item.taobao.com/*",
+    "https://pifa.pinduoduo.com/goods/detail/*",
+    "https://www.bao66.cn/p/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://detail.1688.com/offer/*",
+        "https://detail.tmall.com/*",
+        "https://item.taobao.com/*",
+        "https://pifa.pinduoduo.com/goods/detail/*",
+        "https://www.bao66.cn/p/*"
+      ],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "externally_connectable":{
+    "matches":[
+      "https://detail.1688.com/*",
+      "https://detail.tmall.com/*",
+      "https://item.taobao.com/*",
+      "https://pifa.pinduoduo.com/goods/detail/*",
+      "https://www.bao66.cn/p/*",
+      "*://localhost/*","http://124.223.75.4:5005/*"
+    ]
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "action": {
+    "default_icon": "images/icon128.png"
+  }
+}
