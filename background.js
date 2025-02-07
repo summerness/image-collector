@@ -155,7 +155,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 console.error("存储图片失败：", chrome.runtime.lastError.message);
                 sendResponse({status: "error", message: chrome.runtime.lastError.message});
             } else {
-                chrome.tabs.create({url: 'https://www.khtool.cn/getimglist'});
+                chrome.tabs.create({url: 'https://www.kjtool.cn/getimglist'});
                 sendResponse({status: "success", filteredImagesObj});
             }
         });
